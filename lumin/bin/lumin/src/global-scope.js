@@ -1,0 +1,11 @@
+// This is a required workaround which expects NODE_ENV
+globalThis.process = {
+  env: {
+    NODE_ENV: "development"
+  }
+};
+
+globalThis.require = path => {
+  const elements = path.split("../");
+  return elements.length > 0 ? elements[elements.length - 1] : path;
+};
