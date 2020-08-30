@@ -17,10 +17,12 @@ export default class MyApp extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      name: "name init", 
-      title: "title init", 
-      department: "init department", 
-      manager: "init manager"
+      name: "name init",
+      title: "title init",
+      department: "init department",
+      manager: "init manager",
+      location: "init location",
+      seat: "init seat"
     };
   }
 
@@ -34,7 +36,9 @@ export default class MyApp extends React.Component<Props, State> {
         name: json.name,
         title: json.title, 
         department: json.department, 
-        manager: json.manager
+        manager: json.manager, 
+        location: json.location,
+        seat: json.seat
       });
     } else {
       console.log("HTTP-Error on http://10.14.149.226:9000/data/1: " + response.status);
@@ -63,6 +67,8 @@ export default class MyApp extends React.Component<Props, State> {
                 <Text text={this.state.title} textSize={0.06}></Text>
                 <Text text={`Department: ${this.state.department}`} textSize={0.04}></Text>
                 <Text text={`Manager: ${this.state.manager}`} textSize={0.04}></Text>
+                <Text text={`Location: ${this.state.location}`} textSize={0.04}></Text>
+                <Text text={`Seat: ${this.state.seat}`} textSize={0.04}></Text>
               </LinearLayout>
             </LinearLayout>
           </View>
